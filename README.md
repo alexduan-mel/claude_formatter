@@ -1,4 +1,4 @@
-# Claude Formatter
+# Claude Layout
 
 A Chrome extension that improves the readability of [claude.ai](https://claude.ai) by giving you control over the chat layout and typography.
 
@@ -9,6 +9,18 @@ A Chrome extension that improves the readability of [claude.ai](https://claude.a
 Claude's default chat layout uses a narrow content column and relatively tight line spacing. When Claude outputs a long response, it can be hard to focus on and easy to skim past. This extension lets you widen the column, bump up the font size, open up the line spacing, and switch to a font that's easier on the eyes — all adjustable in real time from a popup.
 
 ## Features
+
+### Theme
+
+The popup header has a theme toggle that cycles through three modes:
+
+| Icon | Mode | Behaviour |
+|---|---|---|
+| Auto | System | Follows your OS light/dark preference |
+| ☾ | Dark | Forces dark mode |
+| ☀ | Light | Forces light mode |
+
+### Typography & layout
 
 | Setting | Default | Range |
 |---|---|---|
@@ -22,6 +34,7 @@ Claude's default chat layout uses a narrow content column and relatively tight l
 ### Available fonts
 
 **System fonts** (no network request, always work):
+- SF Pro — Apple's system font, clean and modern (macOS/iOS only)
 - Georgia — classic serif, great for long reads
 - Palatino — elegant serif, generous spacing
 - Verdana — screen-optimised sans-serif, very open letterforms
