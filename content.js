@@ -63,8 +63,21 @@ function buildCSS(s) {
   `;
 }
 
+function clamp(val, min, max, fallback) {
+  const n = parseFloat(val);
+  return isFinite(n) && n >= min && n <= max ? n : fallback;
+}
+
 function applySettings(settings) {
-  const s = { ...DEFAULTS, ...settings };
+  const s = {
+    contentWidth:  clamp(settings.contentWidth,  600, 1400, DEFAULTS.contentWidth),
+    fontSize:      clamp(settings.fontSize,        12,   24, DEFAULTS.fontSize),
+    lineHeight:    clamp(settings.lineHeight,       1.2,  2.4, DEFAULTS.lineHeight),
+    letterSpacing: clamp(settings.letterSpacing,   0,  0.08, DEFAULTS.letterSpacing),
+    codeFontSize:  clamp(settings.codeFontSize,    10,   20, DEFAULTS.codeFontSize),
+    fontFamily:    Object.prototype.hasOwnProperty.call(FONTS, settings.fontFamily)
+                     ? settings.fontFamily : DEFAULTS.fontFamily,
+  };
   applyFont(s.fontFamily);
 
   if (!styleEl) {
@@ -78,7 +91,7 @@ function applySettings(settings) {
 
 chrome.storage.sync.get(DEFAULTS, applySettings);
 
-chrome.storage.onChanged.addListener((changes, area) => {
+chrome.storage.onChanged.addListener((_changes, area) => {
   if (area !== "sync") return;
   chrome.storage.sync.get(DEFAULTS, applySettings);
 });

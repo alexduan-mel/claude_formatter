@@ -128,5 +128,5 @@ chrome.storage.sync.get({ ...DEFAULTS, theme: "system" }, (settings) => {
 });
 
 document.getElementById("reset").addEventListener("click", () => {
-  chrome.storage.sync.clear(() => applyToUI(DEFAULTS));
+  chrome.storage.sync.remove(Object.keys(DEFAULTS).concat(["theme"]), () => applyToUI(DEFAULTS));
 });
