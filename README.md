@@ -1,4 +1,4 @@
-# Claude Layout
+# Formatter for Claude
 
 A Chrome extension that improves the readability of [claude.ai](https://claude.ai) by giving you control over the chat layout and typography.
 
